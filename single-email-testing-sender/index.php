@@ -1,18 +1,17 @@
 <?php
 /*
 Plugin Name: Single Email Testing Sender
-Plugin URI: http://yourwebsite.com/
+Plugin URI: https://github.com/mayurjobanputra/single-email-tester-wordpress/
 Description: A simple plugin to send a single email for testing purposes.
 Version: 1.0
-Author: Your Name
-Author URI: http://yourwebsite.com/
+Author: Mayur Jobanputra
+Author URI: https://github.com/mayurjobanputra
 */
 
 // Add a menu item to the WordPress admin
 function set_single_email_menu() {
     add_menu_page('Single Email Sender', 'Single Email Sender', 'manage_options', 'single-email-sender', 'single_email_form');
 }
-
 add_action('admin_menu', 'set_single_email_menu');
 
 // Create the form to send email
@@ -53,11 +52,10 @@ function send_single_email() {
         $headers = array('Content-Type: text/html; charset=UTF-8', 'From: ' . sanitize_email($_POST['from_email']));
 
         if (wp_mail($to, $subject, $body, $headers)) {
-            echo '<div>Message sent successfully!</div>';
+            echo '<div style="color:green;">Message sent successfully!</div>';
         } else {
-            echo '<div>Failed to send the message.</div>';
+            echo '<div style="color:red;">Failed to send the message.</div>';
         }
     }
 }
-
 ?>
