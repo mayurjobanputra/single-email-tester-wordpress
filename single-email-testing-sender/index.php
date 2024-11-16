@@ -14,31 +14,39 @@ function set_single_email_menu() {
 }
 add_action('admin_menu', 'set_single_email_menu');
 
+// Enqueue custom admin styles
+function single_email_enqueue_styles() {
+    wp_enqueue_style('single-email-styles', plugin_dir_url(__FILE__) . 'css/style.css');
+}
+add_action('admin_enqueue_scripts', 'single_email_enqueue_styles');
+
 // Create the form to send email
 function single_email_form() {
     ?>
-    <h2>Send a Single Test Email</h2>
-    <form method="post" action="">
-        <p>
-            <label for="from_email">From:</label>
-            <input type="email" name="from_email" id="from_email" required>
-        </p>
-        <p>
-            <label for="to_email">To:</label>
-            <input type="email" name="to_email" id="to_email" required>
-        </p>
-        <p>
-            <label for="email_subject">Subject:</label>
-            <input type="text" name="email_subject" id="email_subject" required>
-        </p>
-        <p>
-            <label for="email_body">Body:</label>
-            <textarea name="email_body" id="email_body" required></textarea>
-        </p>
-        <p>
-            <input type="submit" name="send_email" value="Send Email">
-        </p>
-    </form>
+    <div class="wrap">
+        <h2>Send a Single Test Email</h2>
+        <form method="post" action="">
+            <p>
+                <label for="from_email">From:</label>
+                <input type="email" name="from_email" id="from_email" required>
+            </p>
+            <p>
+                <label for="to_email">To:</label>
+                <input type="email" name="to_email" id="to_email" required>
+            </p>
+            <p>
+                <label for="email_subject">Subject:</label>
+                <input type="text" name="email_subject" id="email_subject" required>
+            </p>
+            <p>
+                <label for="email_body">Body:</label>
+                <textarea name="email_body" id="email_body" rows="8" required></textarea>
+            </p>
+            <p>
+                <input type="submit" name="send_email" value="Send Email">
+            </p>
+        </form>
+    </div>
     <?php
     send_single_email();
 }
@@ -52,9 +60,9 @@ function send_single_email() {
         $headers = array('Content-Type: text/html; charset=UTF-8', 'From: ' . sanitize_email($_POST['from_email']));
 
         if (wp_mail($to, $subject, $body, $headers)) {
-            echo '<div style="color:green;">Message sent successfully!</div>';
+            echo '<div class="success-message">Message sent successfully!</div>';
         } else {
-            echo '<div style="color:red;">Failed to send the message.</div>';
+            echo '<div class="error-message">Failed to send the message.</div>';
         }
     }
 }
