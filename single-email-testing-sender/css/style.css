@@ -50,3 +50,15 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background: #005a8c;
 }
+
+.success-message {
+    color: green;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    margin-top: 20px;
+}
