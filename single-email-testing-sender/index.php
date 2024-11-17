@@ -23,7 +23,7 @@ add_action('admin_enqueue_scripts', 'single_email_enqueue_styles');
 // Create the form to send email
 function single_email_form() {
     ?>
-    <div class="wrap">
+    <div class="wrap single-email-sender">
         <h2>Send a Single Test Email</h2>
         <p>
             To use this plugin, you should first install and configure the 
