@@ -14,10 +14,8 @@ The **Single Email Testing Sender** plugin allows you to send a single test emai
 
 ## Installation
 
-1. Clone the repository or download the ZIP file.
-2. Upload the `single-email-tester-wordpress` folder to the `/wp-content/plugins/` directory.
-3. Activate the plugin through the 'Plugins' menu in WordPress.
-4. Navigate to the **Single Email Sender** option in the WordPress admin menu.
+1. Download the zip file in this repo at https://github.com/mayurjobanputra/single-email-tester-wordpress/blob/main/single-email-tester-wordpress.zip
+2. Install in WordPress as you would any other plugin
 
 ## Usage
 
