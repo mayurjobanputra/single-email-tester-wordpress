@@ -1,4 +1,4 @@
-# Single Email Testing Sender
+# Single Email Testing Sender for WordPress
 
 ## Description
 
