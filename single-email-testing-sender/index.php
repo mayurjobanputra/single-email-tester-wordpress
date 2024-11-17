@@ -25,22 +25,31 @@ function single_email_form() {
     ?>
     <div class="wrap">
         <h2>Send a Single Test Email</h2>
+        <p>
+            To use this plugin, you should first install and configure the 
+            <a href="https://en-ca.wordpress.org/plugins/wp-mail-smtp/" target="_blank">WP Mail SMTP</a> plugin 
+            or another SMTP plugin of your choice. Make sure to also modify your DNS settings as required by your email provider.
+        </p>
+        <p>
+            I personally use Brevo to send emails through their SMTP server, as I'm accustomed to it.
+            <strong>Note:</strong> It is recommended to use only the configured domain for the "From" email address to avoid issues with email delivery.
+        </p>
         <form method="post" action="">
             <p>
                 <label for="from_email">From:</label>
-                <input type="email" name="from_email" id="from_email" required>
+                <input type="email" name="from_email" id="from_email" placeholder="you@yourdomain.com" required>
             </p>
             <p>
                 <label for="to_email">To:</label>
-                <input type="email" name="to_email" id="to_email" required>
+                <input type="email" name="to_email" id="to_email" placeholder="recipient@example.com" required>
             </p>
             <p>
                 <label for="email_subject">Subject:</label>
-                <input type="text" name="email_subject" id="email_subject" required>
+                <input type="text" name="email_subject" id="email_subject" placeholder="Email Subject" required>
             </p>
             <p>
                 <label for="email_body">Body:</label>
-                <textarea name="email_body" id="email_body" rows="8" required></textarea>
+                <textarea name="email_body" id="email_body" rows="8" placeholder="Type your message here..." required></textarea>
             </p>
             <p>
                 <input type="submit" name="send_email" value="Send Email">
